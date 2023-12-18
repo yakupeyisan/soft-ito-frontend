@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            background-color: #f3f3f3;
+        }
+        .box{
+            width:100px;
+            height: 100px;
+        }
+        .bg-red{
+            background-color:red;
+        }
+        nav{
+            padding: 0 45px;
+            height: 50px;
+            width: 100%;
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+        nav>img.logo{
+            height: 30px;
+        }
+        .nav-menu>ul>li{
+            list-style: none;
+            display: inline-block;
+        }
+        .nav-menu>ul>li>a{
+            text-decoration: none;
+            color: #333;
+            padding: 0 10px;
+        }
+        .btn{    
+            padding: 0px 20px;
+            height: 30px;
+            border: none;
+            color: white;
+            overflow: hidden;
+        }
+        .btn-buy{
+            background-color: #5658df;
+        }
+        .landing{
+            height: 390px;
+            background: url('assets/images/landing.jpeg');
+            background-repeat:no-repeat;
+            background-size: cover;
+            background-position:  center center;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            color: white;
+            padding: 45px;
+        }
+        .landing-content{
+            width: 800px;
+        }
+        .btn-more{
+            background: none;
+        }
+        .btn-more::before{
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 1px;
+            background-color: white;
+            transform: translateX(-20px) translateY(7px);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <img class="logo" src="assets/images/logo.png">
+        <div class="nav-menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Live Demo</a></li>
+                <li><a href="#">Live Demo Block</a></li>
+            </ul>
+        </div>
+        <button class="btn btn-buy">Buy Now</button>
+    </nav>
+    <div class="landing">
+        <div class="landing-content">
+            <h3>Promo Agency</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae impedit aliquid debitis magnam sit! Tempora recusandae, assumenda, eaque repellat soluta temporibus totam, at libero voluptatum laboriosam vel illo? Numquam, enim.</p>
+            <button class="btn btn-more">Learn More</button>
+        </div>
+    </div>
+    <div class="box bg-red"></div>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium id officia quasi sequi architecto, similique veniam necessitatibus impedit suscipit amet facere tempora a eveniet illo illum quod nostrum inventore odio.</p>
+</body>
+</html>

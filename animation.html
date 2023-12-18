@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+    <style>
+        :root{
+            --max-size:320px;
+            --max-padding:20px;
+            --body-bg:#10131c;
+            --box-bg:#212532;
+        }
+        *{
+            margin: 0px;
+        }
+        body{
+            background-color: var(--body-bg);
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{
+            background-color: var(--box-bg);
+            width: calc(var(--max-size) / 6);
+            height:  calc(var(--max-size) / 6);
+            border-radius: 15px;
+            padding: 11px;
+            position: relative;
+            transition: 1.2s ease-in-out;
+        }
+        .box>span{
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: white;
+            transition: calc(.1s * var(--i)) ease-in-out;
+            transition-delay: calc(.1s * var(--i));
+            transform: translateX(calc(var(--x) * calc(var(--max-size) / 18))) translateY(calc(var(--y) * calc(var(--max-size)  / 18)));
+
+        }
+        .box.active{
+            width: var(--max-size) ;
+            height: var(--max-size) ;
+            padding: var(--max-padding);
+        }
+        .box.active>span{
+            margin: 5px;
+            width: calc(calc(var(--max-size) - calc(var(--max-padding) * 2)) / 3);
+            height: calc(calc(var(--max-size) - calc(var(--max-padding) * 2)) / 3);
+            transform: translateX(calc(var(--x) * calc(var(--max-size) / 3))) translateY(calc(var(--y) * calc(var(--max-size)  / 3)));
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box active">
+        <span style="--i:1;--x:0;--y:0">1</span>
+        <span style="--i:2;--x:1;--y:0">2</span>
+        <span style="--i:3;--x:2;--y:0">3</span>
+        <span style="--i:8;--x:0;--y:1">4</span>
+        <span style="--i:0;--x:1;--y:1">5</span>
+        <span style="--i:4;--x:2;--y:1">6</span>
+        <span style="--i:7;--x:0;--y:2">7</span>
+        <span style="--i:6;--x:1;--y:2">8</span>
+        <span style="--i:5;--x:2;--y:2">9</span>
+    </div>
+    <script>
+        var box= document.querySelector(".box")
+        box.onclick=function(){
+            box.classList.toggle("active")
+        }
+    </script>
+</body>
+</html>
