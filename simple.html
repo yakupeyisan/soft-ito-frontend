@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple</title>
+    <style>
+        *{
+            margin: 0px;
+        }
+        .btn-groups{
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .btn-groups>button{ 
+            background-color: #ff9800;
+            border: none;
+            overflow: hidden;
+            padding: 10px 15px;
+            color: #312524;
+            margin: 0px 10px;
+        }
+        .products{
+            padding: 30px;
+        }
+        .products>.product{
+            display: inline-block;
+            width: 33%;
+        }
+        .products>.product>.product-title{
+            height: 100px;
+        }
+        .products>.product>.product-image{
+            height: 100px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="btn-groups"></div>
+    <div class="products"></div>
+    <script>
+        const btnGroups=document.querySelector(".btn-groups")
+        const products=document.querySelector(".products")
+        
+        fetch("https://fakestoreapi.com/products/categories")
+        .then(response=>response.json())
+        .then(result=>{
+            result.forEach(categoryName => {
+                let button=document.createElement("button")
+                button.innerText=categoryName
+                button.classList.add("btn-link");
+                button.onclick=clickFunc;
+                button.setAttribute("data-link","https://fakestoreapi.com/products/category/"+categoryName)
+                btnGroups.appendChild(button)
+            });
+        })
+        clickFunc=(el)=>{
+            products.innerHTML="Yükleniyor";
+            let btn=el.srcElement;
+            fetch(btn.getAttribute("data-link"))
+            .then(response=>response.json())
+            .then(result=>{
+                var mappedResult=result
+                .filter(product=>product.rating.rate>3&&product.rating.count>300)
+                .map(product=>{ return {name:product.title, rateText:product.rating.rate+' - '+product.rating.count}})
+                console.log(result,mappedResult);
+                setTimeout(()=>{
+                    products.innerHTML="";
+                    result.forEach(product => {
+                        let title=document.createElement("h3")
+                        title.classList.add("product-title");
+                        title.innerText=product.title;
+                        let image=document.createElement("img");
+                        image.classList.add("product-image");
+                        image.src=product.image;
+                        let box = document.createElement("div");
+                        box.classList.add("product");
+                        box.appendChild(title)
+                        box.appendChild(image)
+                        products.appendChild(box)
+                    });
+                },3000)
+            })
+        }
+
+        //Nesne yönelimli programlama neden çıktı?
+
+        //"Ad|Soyad|Yaş|Cinsiyet";
+
+        var users="Yakup|Eyisan|29|Erkek|12345678901|Ahsen|Eser|23|Kadın|12345678901|Tayyip|Kılıç|26|Erkek|Samet|Elibol|25|Erkek|12345678901";
+        var userList=users.split("|")
+        console.log(userList);
+        for(let i=0;i<userList.length;i+=5)
+        {
+            let name=userList[i+0];
+            let surname=userList[i+1];
+            let age=userList[i+2];
+            let gender=userList[i+3];
+            let identificationNumber=userList[i+4];
+            console.log(name,surname,age,gender,identificationNumber);
+        }
+
+        var arrayUsers=[
+            {
+                name:"Yakup",
+                surname:"Eyisan",
+                age:29,
+                gender:"Erkek",
+                identificationNumber:"12345678901",
+                plate:"34 FTZ 419"
+            },
+            {
+                name:"Ahsen",
+                surname:"Eser",
+                age:23,
+                gender:"Kadın"
+            },
+            {
+                name:"Tayyip",
+                surname:"Kılıç",
+                studentNumber:"12312321"
+            }
+        ]
+        arrayUsers.forEach(user=>{
+            console.log(user.name,user.surname,user.gender,user.age,user.identificationNumber,user.plate,user.studentNumber);
+        })
+    </script>
+</body>
+</html>

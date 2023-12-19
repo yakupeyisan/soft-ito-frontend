@@ -50,12 +50,125 @@
        
       let a=+prompt("Kısa kenar uzunluğu giriniz"),b=+prompt("Uzun kenar uzunluğu giriniz")
       document.writeln(Math.sqrt(a*a + b**2)) //b^2
-      */
-       var total=0,totalCount=+prompt("Sınıf mevcudunu giriniz.");
-       for(let i=1;i<=totalCount;i++){
-            total+=(+prompt(`${i}. Öğrencinin Vize  notunu giriniz`)*0.4) + (+prompt(`${i}. Öğrencinin Final notunu giriniz`) * 0.6)
-       }
+      
+       var total=0,totalCount=getValue("Sınıf mevcudunu giriniz.");
+       for(let i=1;i<=totalCount;i++)
+            total+=(getValue(`${i}. Öğrencinin Vize notunu giriniz`)*0.4) + (getValue(`${i}. Öğrencinin Final notunu giriniz`) * 0.6)
        document.write(`${totalCount} için ortalama not: ${total/totalCount}`)
+
+       function fName(arg){
+
+       }
+
+       function sum(a,b){
+         return a+b
+       }
+       function getValue(message="Bir sayı giriniz",again=false){
+            var number= +prompt((again)?"Hatalı bir sayı girdiniz. Lütfen tekrar deneyiniz..":message)
+            return (isNaN(number))? getValue(message,true):number;
+            // if(isNaN(number)) return getValue(true)
+            // return number
+       }
+       console.log(sum(3,5));
+       console.log(getValue())
+       function isChild(year){
+            if(year<18) console.log(true)
+            else console.log(false)
+       }
+       function isChildWithReturn(year){
+        if(year<18) return true;
+        else return false;
+       }
+       console.log(isChild(14))
+       isChild(18)
+
+       console.log(isChildWithReturn(14))
+       isChildWithReturn(18)
+
+       function learnParameters(a,b,c,d,e=5){
+        console.log(a,b,c,d,e);
+       }
+       learnParameters()
+       function writeZeroOfHundred(){
+        for (let i = 1; i < 3; i++) {
+            setTimeout(()=>{
+                for (let k = 0; k < 10; k++) {
+                    setTimeout(() => {
+                        console.log("in",i,k)
+                    }, 1000*k);
+                }
+                console.log(i)
+            
+            },1000*i)
+            
+        }
+       }
+       console.log("Başladı")
+       writeZeroOfHundred();
+       console.log("Bitti")
+       
+      var i=0;
+      var intr=setInterval(()=>{
+        i++;
+        console.log(i,intr);
+        if(i>10) clearInterval(intr);
+      },1000)
+      
+      const namedFunction = (a,b,c,d)=>{
+        console.log(a,b,c,d);
+      }
+      namedFunction(1,2);
+      (()=>{
+        console.log("abc");
+      })()
+
+      function login(username,password,acallBack,bcallBack){
+        if(username=="abc"&&password==123){
+            acallBack();
+        }
+        else{
+            bcallBack("Kod:85");
+        }
+      }
+      function errorCallback(message){
+        console.log("Hatalı giriş yaptınız. Hata kodu:"+message);
+      }
+      function successCallback(){
+        console.log("Giriş başarılı");
+      }
+    //   login("abc",123)
+      login("abc",123,successCallback,errorCallback)
+      login("abc",122,successCallback,errorCallback)
+      
+     async function testAsync(){
+        //throw "sunucuya ulaşılamıyor";
+        return "abc";
+     }
+     testAsync()
+     .then((result)=>{
+        console.log(result)     
+    })
+     .catch(err=>{
+        console.error(err);
+     })
+     .finally(()=>{
+        console.log("bitti");
+     })*/
+     async function getDolarRate(){
+        await new Promise(r=> setTimeout(r,3000))
+        return 30;
+     }
+
+     //satışı başlat
+     //doları kurunu getir
+     //dolar kuruna göre kar payı hesapla 
+     //Satışı al
+        getDolarRate().then(result=>{
+            console.log(result);
+            console.log("dolar kuruna göre kar payı hesapla ");
+        })
+
+
     </script>
 
 </body>
