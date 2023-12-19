@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js İntros</title>
+</head>
+<body>
+    <script>
+        /* Tipler
+        const x=["a","b","c"];
+        const y={
+            adres1:"xyz",
+            ad:"Ali",
+            soyad:"Veli",
+            global:x
+
+        };
+        var a=5;
+        let b=5;
+        c=10;
+        d="ali"
+        console.log(y);
+        if(x[1]=="p") console.log("if1")
+        x[1]="p"
+        if(x[1]=="p") console.log("if2")
+        console.log(a,b,c,d,x,y);
+        if(true){
+            var t=0;
+            let m=1;
+            var t=3
+        }
+            var m=3
+        console.log(t,m)
+        
+       var sonuc=5+3;
+       document.writeln(sonuc);
+       let a=prompt()
+       document.writeln(a);
+       for (let i = 0; i < 10; i++) {
+        document.writeln(i);
+       }
+
+       var userCount=+prompt("Kullanıcı sayısını giriniz"),total=0
+       for (let i = 0; i < userCount; i++) {
+        total+=+prompt("Ayakkabı numarası giriniz")
+        
+       }
+       document.writeln(total/userCount);
+       
+      let a=+prompt("Kısa kenar uzunluğu giriniz"),b=+prompt("Uzun kenar uzunluğu giriniz")
+      document.writeln(Math.sqrt(a*a + b**2)) //b^2
+      */
+       var total=0,totalCount=+prompt("Sınıf mevcudunu giriniz.");
+       for(let i=1;i<=totalCount;i++){
+            total+=(+prompt(`${i}. Öğrencinin Vize  notunu giriniz`)*0.4) + (+prompt(`${i}. Öğrencinin Final notunu giriniz`) * 0.6)
+       }
+       document.write(`${totalCount} için ortalama not: ${total/totalCount}`)
+    </script>
+
+</body>
+</html>
