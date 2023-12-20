@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .carousel-indicators>button{
+            border-radius: 50%;
+            width: 8px !important;
+            height: 8px !important;
+        }
+        .carousel-indicators>button:not(:first-child){
+            margin-left: 30px !important;
+        }
+        .carousel-inner{
+            height: calc(100vh - 56px);
+        }
+        .carousel-inner>.carousel-item{
+            height: 100vh;
+        }
+        .carousel-inner>.carousel-item>.carousel-caption{
+            padding: 0px !important;
+            top: 50%;
+            left: 210px;
+            text-align: left;
+            transform: translateY(-70%);
+            bottom: auto;
+            right: auto;
+            z-index: 10;
+        }
+        .black-opacity{
+            background-color: rgba(0, 0, 0, 0.374);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 1;
+        }
+    </style>
+</head>
+  <body>
+    <div id="home"></div>
+    <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary">
+        <div class="container">
+          <a class="navbar-brand" href="#">Logo</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="#home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about-us">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact-us">Contact Us</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <button class="btn btn-outline-success" type="submit">
+                <i class="fas fa-search"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="black-opacity"></div>
+          <div class="carousel-item active">
+            <img src="https://www.shiftbase.com/hs-fs/hubfs/6a0fa8af-1b1a-4f25-aa51-3ae2579d4e95%5B1%5D.jpeg?width=725&name=6a0fa8af-1b1a-4f25-aa51-3ae2579d4e95%5B1%5D.jpeg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>First slide label</h5>
+              <p>Some representative placeholder content for the first slide.</p>
+              <button class="btn rounded-pill btn-outline-light float-end">View Detail</button>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://datascience.columbia.edu/wp-content/uploads/2021/03/data-science-teamwork.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Second slide label</h5>
+              <p>Some representative placeholder content for the second slide.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://thumbs.dreamstime.com/z/teamwork-data-analytics-together-working-analysis-large-monitor-display-graph-chart-vector-illustrations-138758948.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Third slide label</h5>
+              <p>Some representative placeholder content for the third slide.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <div id="about-us" class="container mt-4">
+            <h1 class="text-center">About Us</h1>
+            <div class="row mb-2">
+                <div class="col h-100">
+                    <h2>About Us</h2>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat officia deleniti corporis fugit, tenetur laudantium soluta enim placeat doloremque nisi harum eum distinctio similique cum! Eum cum natus quo at. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla, accusantium, dolorum, qui quisquam vel ab eius veniam molestiae ducimus suscipit optio totam dolor! Enim at aperiam cum quidem quae amet? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus eveniet omnis velit neque facere aliquid nostrum, maiores aliquam in quisquam sunt impedit nulla nobis inventore cupiditate accusamus suscipit doloremque ullam.</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, illo, distinctio eius officia mollitia iure nihil exercitationem nam facilis magnam, velit doloribus aperiam molestiae vel fugit? Magnam illo sit praesentium.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet unde est, atque quia minus a. Consequuntur voluptate, nesciunt saepe deserunt voluptatibus temporibus dolorem accusantium eos, mollitia beatae sed incidunt at?</p>
+                    </div>
+                </div>
+                <div class="col-5 h-100">
+                    <img src="https://www.monitask.com/wp-content/uploads/2021/08/teamwork-2.jpg" class="w-100 object-fit-cover" alt="">
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-5 h-100">
+                    <img src="https://www.monitask.com/wp-content/uploads/2021/08/teamwork-2.jpg" class="w-100 object-fit-cover" alt="">
+                </div>
+                <div class="col h-100">
+                    <h2>Vision</h2>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat officia deleniti corporis fugit, tenetur laudantium soluta enim placeat doloremque nisi harum eum distinctio similique cum! Eum cum natus quo at. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla, accusantium, dolorum, qui quisquam vel ab eius veniam molestiae ducimus suscipit optio totam dolor! Enim at aperiam cum quidem quae amet? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus eveniet omnis velit neque facere aliquid nostrum, maiores aliquam in quisquam sunt impedit nulla nobis inventore cupiditate accusamus suscipit doloremque ullam.</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, illo, distinctio eius officia mollitia iure nihil exercitationem nam facilis magnam, velit doloribus aperiam molestiae vel fugit? Magnam illo sit praesentium.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet unde est, atque quia minus a. Consequuntur voluptate, nesciunt saepe deserunt voluptatibus temporibus dolorem accusantium eos, mollitia beatae sed incidunt at?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col h-100">
+                    <h2 class="text-center">Mission</h2>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat officia deleniti corporis fugit, tenetur laudantium soluta enim placeat doloremque nisi harum eum distinctio similique cum! Eum cum natus quo at. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla, accusantium, dolorum, qui quisquam vel ab eius veniam molestiae ducimus suscipit optio totam dolor! Enim at aperiam cum quidem quae amet? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus eveniet omnis velit neque facere aliquid nostrum, maiores aliquam in quisquam sunt impedit nulla nobis inventore cupiditate accusamus suscipit doloremque ullam.</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, illo, distinctio eius officia mollitia iure nihil exercitationem nam facilis magnam, velit doloribus aperiam molestiae vel fugit? Magnam illo sit praesentium.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet unde est, atque quia minus a. Consequuntur voluptate, nesciunt saepe deserunt voluptatibus temporibus dolorem accusantium eos, mollitia beatae sed incidunt at?</p>
+                    </div>
+                </div>
+            </div>
+      </div>
+      <div id="contact-us" class="container mt-4">
+            <h1 class="text-center">Contact Us</h1>
+            <div class="row">
+                <div class="col">
+                    <form>
+                        <div class="row mb-2">
+                            <div class="col">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="firstName" placeholder="First Name">
+                            </div>
+                            <div class="col">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea rows="5" id="message" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col"><button class="btn btn-primary float-end">Submit</button></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.816981102528!2d28.829339576493847!3d40.985488271353795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa3c34bae1ca7%3A0xa3ba77557c2ae636!2sSoftITo%20Yaz%C4%B1l%C4%B1m%20-%20Bili%C5%9Fim%20Akademisi%20(%C4%B0stanbul%20Ticaret%20Odas%C4%B1)!5e0!3m2!1str!2str!4v1703075845193!5m2!1str!2str" height="300" class="w-100 border border-3" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+      </div>
+      <footer class="text-center">
+        &copy; Created by <a href="http://github.com/yakupeyisan" target="_blank">Yakup Eyisan</a>
+      </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>
