@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .box{
+            background-color: red;
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+        }
+        .box::after{
+            content: '';
+            position: absolute;
+            width: 270px;
+            height: 270px;
+            border-radius: 50%;
+            bottom: -1px;
+            border:5px solid cyan;
+            background: url('https://media.wired.com/photos/5af2313914823b60460cfe2f/master/pass/Google-CEO-956088024.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position-x: center;
+            background-position-y: center;
+            left:50%;
+            transform: translateX(-50%);
+        }
+        div.line{
+            background-color: green;
+            position: absolute;
+            height: 5px;
+            width: 90px;
+            rotate: 35deg;
+            top: 10px;
+            left: 2px;
+        }
+        .line::after{    
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: green;
+            top: -5px;
+            left: -3px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="line"></div>
+    </div>
+</body>
+</html>

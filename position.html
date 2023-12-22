@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box-group{
+            width: 100%;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            /* Position 
+            position: absolute;
+            right: 0px;
+            top: 10px; */
+
+        }
+        .yellow{
+            background-color: yellow;
+        }
+        .green{
+            background-color: green;
+        }
+        .blue{
+            background-color: blue;
+            margin-left: auto;
+        }
+        .image-box{
+            position: relative;
+        }
+        .image-box>img{
+            width: 100%;
+        }
+        .image-box>.banner{
+            position: absolute;
+            top:50%;
+            left:50%;
+            /* transform: translateX(-50%) translateY(-50%); */
+            transform: translate(-50%,-50%);
+        }
+        .image-box-2{
+            height: 500px;
+            background: url('https://media.istockphoto.com/id/1283504873/photo/mosque-and-bosphorus-bridge.jpg?s=612x612&w=0&k=20&c=UHyYLC4VVJef9V8vzdJsVwqSjX3N06D2-975j3VoajY=');
+            background-repeat: no-repeat;
+            background-size: cover;
+            /* background-position: center; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .image-box-2>.banner{
+            /* position: absolute; */
+            transform: translateY(-12px);
+        }
+        .simple{
+            width: 200px;
+            height: 200px;
+            position: relative;
+
+        }
+        .simple>.yellow{
+            position: absolute;
+            top:20px;
+            left: 20px;
+            z-index: 2;
+        }
+        .simple>.blue{
+            position: absolute;
+            top:40px;
+            left: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box-group">
+
+        <div class="box blue"></div>
+        <!-- <div class="box yellow"></div>
+        <div class="box green"></div> -->
+    </div>
+    <div class="image-box">
+        <img src="https://media.istockphoto.com/id/1283504873/photo/mosque-and-bosphorus-bridge.jpg?s=612x612&w=0&k=20&c=UHyYLC4VVJef9V8vzdJsVwqSjX3N06D2-975j3VoajY=" alt="">
+        <div class="box blue banner">İmage banner</div>
+    </div>
+    <div class="image-box-2">
+        <div class="box green banner">Message</div>
+    </div>
+    <div class="simple">
+
+        <div class="box yellow banner">Message</div>
+        <div class="box green banner">Message</div>
+        <div class="box blue banner">Message</div>
+    </div>
+</body>
+</html>

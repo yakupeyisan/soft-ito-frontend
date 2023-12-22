@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            --columns:4;
+            --rows:4;
+            --grid-column:1;
+            --grid-row:1;
+            --rowspan:1;
+            --colspan:1;
+
+        }
+        body{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .image-content{
+            width: 440px;
+            display: grid;
+            grid-template-columns: repeat(var(--columns), 1fr);
+            grid-template-rows: repeat(var(--rows), 120px);
+            column-gap: 10px;
+            row-gap: 10px;
+        }
+        .image{
+            background-color: red;
+            grid-column: var(--grid-column)/ span var(--colspan);
+            grid-row: var(--grid-row) / span var(--rowspan);
+        }
+    </style>
+</head>
+<body>
+    <div class="image-content">
+        <div class="image" style="--grid-column:1;--colspan:2;--grid-row:1;--rowspan:2"></div>
+        <div class="image" style="--grid-column:3;--grid-row:1"></div>
+        <div class="image" style="--grid-column:4;--grid-row:1"></div>
+        <div class="image" style="--grid-column:3;--colspan:2;--grid-row:2"></div>
+        <div class="image" style="--grid-column:1;--grid-row:3"></div>
+        <div class="image" style="--grid-column:2;--colspan:2;--grid-row:3"></div>
+        <div class="image" style="--grid-column:4;--grid-row:3; --rowspan:2;"></div>
+        <div class="image" style="--grid-column:1 ;--colspan:3;--grid-row:4"></div>
+        <!-- <div class="image" style="--grid-column:1 / 3;--grid-row:1 / 3"></div>
+        <div class="image" style="--grid-column:3;--grid-row:1"></div>
+        <div class="image" style="--grid-column:4;--grid-row:1"></div>
+        <div class="image" style="--grid-column:3/5;--grid-row:2"></div>
+        <div class="image" style="--grid-column:1;--grid-row:3"></div>
+        <div class="image" style="--grid-column:2;--grid-row:3"></div>
+        <div class="image" style="--grid-column:3;--grid-row:3"></div>
+        <div class="image" style="--grid-column:4;--grid-row:3/5"></div>
+        <div class="image" style="--grid-column:1/4;--grid-row:4"></div> -->
+    </div>
+</body>
+</html>
