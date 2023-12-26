@@ -58,6 +58,7 @@
     </tbody>
 </table>
 
+<input type="text" [(ngModel)]="searchText">
 <table class="table table-bordered w-50">
     <thead>
         <tr>
@@ -76,8 +77,8 @@
             <td>{{view.categoryId}}</td>
             <td>{{view.categoryName}}</td>
             <td>{{view.name}}</td>
-            <td>{{view.price}}</td>
-            <td>{{view.rate}}</td>
+            <td>{{view.price|currency:'₺':'symbol':'1.2-2'}}</td>
+            <td>{{view.rate|number:'1.2-2'}}</td>
             <td>{{view.rateCount}}</td>
         </tr>
         <tr *ngIf="getProductWithRateList().length==0">

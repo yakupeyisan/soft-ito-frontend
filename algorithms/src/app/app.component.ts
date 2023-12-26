@@ -1,18 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, importProvidersFrom } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { Category, Product, ProductRate } from './entities/entity';
 import { ProductViewDto } from './entities/dto';
-
+import { FormsModule } from '@angular/forms';
+import "./extensions/strings";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule,FormsModule, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'algorithms';
+  searchText:string="";
   categories:Category[]=[
     {
       id:1,
@@ -51,6 +53,19 @@ export class AppComponent {
           rateCount:productRates.length
         } ;
     })
+    productViewList=productViewList.filter(view=>
+        this.searchText=="" ||
+        (
+          view.categoryId.toString()==this.searchText ||
+          view.id.toString()==this.searchText||
+          view.name?.toSearchText().includes(this.searchText.toSearchText())||
+          view.categoryName?.toSearchText().includes(this.searchText.toSearchText())||
+          view.price.toString().toSearchText().includes(this.searchText.toSearchText())||
+          view.rate?.toString().toSearchText().includes(this.searchText.toSearchText())||
+          view.rateCount?.toString()==this.searchText
+        )
+      )
+      console.log(productViewList)
     return productViewList;
   }
 
