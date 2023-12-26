@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from './menu/menu.component';
 import { Permission, User, UserPermission } from './entities/entities';
+import { UserPermissionViewDto } from './entities/dtos';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ import { Permission, User, UserPermission } from './entities/entities';
 })
 export class AppComponent {
   title = 'simple';
+  searchText:string=""
   userList:User[]=[
     {
       id:1,
@@ -70,13 +72,38 @@ export class AppComponent {
     }
   ]
 
-  getUserById(id:number):any|undefined{
-    return this.userList.map(user=>{return {id:user.id,fullName:user.firstName+" "+this.makeMask(user.lastName)}}).find(user=>user.id==id)
+  getUserById(id:number):User|undefined{
+    return this.userList.find(user=>user.id==id)
   }
   getPermissionById(id:number):Permission|undefined{
     return this.permissionList.find(permission=>permission.id==id)
   }
   makeMask(text:string):string{
     return text.substring(0,2)+"***";
+  }
+  getUserPermissionListBySearch():UserPermissionViewDto[]{
+    let userPermissionViewList:UserPermissionViewDto[]=
+    this.userPermissionList.map(userPermission=>{
+      let user=this.getUserById(userPermission.userId);
+      let permission=this.getPermissionById(userPermission.permissionId);
+      let userPermissionViewDto:UserPermissionViewDto={
+        id:userPermission.id,
+        userId:userPermission.userId,
+        permissionId:userPermission.permissionId,
+        userFullName:user?.firstName+' '+user?.lastName,
+        permissionName:permission?.name??''
+      }
+      return userPermissionViewDto
+    })
+    return userPermissionViewList.filter(
+      userPermission=>
+        this.searchText=="" ||
+        (
+          userPermission.permissionId.toString()==this.searchText ||
+          userPermission.userId.toString()==this.searchText ||
+          userPermission.userFullName.toLocaleLowerCase().includes(this.searchText.toLocaleLowerCase()) ||
+          userPermission.permissionName.toLocaleLowerCase().includes(this.searchText.toLocaleLowerCase())
+        )
+      )
   }
 }

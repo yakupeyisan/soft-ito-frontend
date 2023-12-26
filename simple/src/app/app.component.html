@@ -30,6 +30,7 @@
     </tr>
   </tbody>
 </table>
+<input type="text" [(ngModel)]="searchText">
 <table style="border: 1px solid black;">
   <thead>
     <tr>
@@ -41,12 +42,12 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let userPermission of userPermissionList">
+    <tr *ngFor="let userPermission of getUserPermissionListBySearch()">
       <td>{{userPermission.id}}</td>
       <td>{{userPermission.userId}}</td>
       <td>{{userPermission.permissionId}}</td>
-      <td>{{getUserById(userPermission.userId)?.fullName}}</td>
-      <td>{{getPermissionById(userPermission.permissionId)?.name}}</td>
+      <td>{{userPermission.userFullName}}</td>
+      <td>{{userPermission.permissionName}}</td>
     </tr>
   </tbody>
 </table>
