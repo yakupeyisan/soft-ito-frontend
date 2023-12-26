@@ -5,12 +5,18 @@ import { Category, Product, ProductRate } from './entities/entity';
 import { ProductViewDto } from './entities/dto';
 import { FormsModule } from '@angular/forms';
 import "./extensions/strings";
+import { PostComponent } from './components/post/post.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule,FormsModule, RouterOutlet],
+  imports: [
+    PostComponent,
+    CommonModule,
+    FormsModule, 
+    RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
+  providers:[]
 })
 export class AppComponent {
   title = 'algorithms';
